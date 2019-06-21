@@ -4,7 +4,7 @@
     crossorigin="anonymous"></script>
 </head>
     <div id="returned-info">Blank</div>
-    <form id="info" action="https://postman-echo.com/post" method="post">
+    <form id="info" method="post">
         Info Field One: <input type="text" name="fieldOne"><br>
         Info Field Two: <input type="text" name="fieldTwo"><br>
         <button id="submit-button" type="submit" value="Submit"></button>
@@ -15,7 +15,7 @@
             $("#submit-button").click(function (e) {
                 e.preventDefault();
                var info = $('#info').serialize();
-               $.post("https://postman-echo.com/post", info, function(data) {
+               $.post("https://scanner-msg.mgl.providence.org/scanner_message", info, function(data) {
                    $('#returned-info').html(data);
                })
 
