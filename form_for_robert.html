@@ -1,0 +1,24 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+</head>
+    <div id="returned-info">Blank</div>
+    <form id="info" action="https://postman-echo.com/post" method="post">
+        Info Field One: <input type="text" name="fieldOne"><br>
+        Info Field Two: <input type="text" name="fieldTwo"><br>
+        <button id="submit-button" type="submit" value="Submit"></button>
+    </form>
+</html>
+<script>
+        $(document).ready(function () {
+            $("#submit-button").click(function (e) {
+                e.preventDefault();
+               var info = $('#info').serialize();
+               $.post("https://postman-echo.com/post", info, function(data) {
+                   $('#returned-info').html(data);
+               })
+
+            });
+        });
+</script>
